@@ -4,19 +4,14 @@ public class BackgroundScroller : MonoBehaviour
 {
     public float scrollSpeed = 2f;
     public Transform[] backgrounds;
+    public float moveLimit = 0.5f;
+    public float offset = 0.1f;
 
     private float backgroundWidth;
 
     void Start()
     {
-        if (backgrounds.Length < 2)
-        {
-            Debug.LogError("Asigna al menos 2 fondos al array backgrounds");
-            enabled = false;
-            return;
-        }
-
-        // Calculamos el ancho del fondo usando el SpriteRenderer
+        // Asumimos que todos tienen el mismo ancho
         backgroundWidth = backgrounds[0].GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
@@ -24,23 +19,23 @@ public class BackgroundScroller : MonoBehaviour
     {
         foreach (Transform bg in backgrounds)
         {
-            // Mueve el fondo hacia la izquierda
             bg.position += Vector3.left * scrollSpeed * Time.deltaTime;
 
-            // Si el fondo ha salido completamente por la izquierda
-            if (bg.position.x <= -backgroundWidth)
+            // Si ha salido completamente por la izquierda
+            if (bg.position.x <= -(backgroundWidth + moveLimit))
             {
-                // Encuentra el fondo más a la derecha
-                Transform rightmost = backgrounds[0];
-                foreach (var other in backgrounds)
+                // Buscar el fondo más a la derecha
+                float maxX = backgrounds[0].position.x;
+                foreach (Transform other in backgrounds)
                 {
-                    if (other.position.x > rightmost.position.x)
-                        rightmost = other;
+                    if (other != bg && other.position.x > maxX)
+                        maxX = other.position.x;
                 }
 
-                // Recoloca este fondo justo detrás del más a la derecha sin dejar espacio
-                bg.position = new Vector3(rightmost.position.x + backgroundWidth, bg.position.y, bg.position.z);
+                // Reposicionarlo justo después
+                bg.position = new Vector3(maxX + (backgroundWidth - offset), bg.position.y, bg.position.z);
             }
         }
     }
+
 }
