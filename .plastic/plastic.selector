@@ -1,4 +1,0 @@
-repository "iddle 2025-07-14_18-41-30/iddle@6872290660904@cloud"
-  path "/"
-    br "/main"
-    co "/main"
