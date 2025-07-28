@@ -1,3 +1,4 @@
+using System.Collections;
 using System.IO;
 using TMPro;
 using UnityEngine;
@@ -13,9 +14,15 @@ public class GameController : MonoBehaviour
     public static GameController Instance { get; private set; }
     public int Monedas => datosJugador.monedas;
     public TextMeshProUGUI pointsText;
+    public GameObject firePrefab;
 
     private DatosJugador datosJugador;
     private string rutaArchivo;
+
+    private void Start()
+    {
+        StartCoroutine(GenerarColeccionable()); 
+    }
 
     private void Awake()
     {
@@ -34,7 +41,7 @@ public class GameController : MonoBehaviour
         CargarDatos();
     }
 
-    public void AñadirMonedas(int cantidad)
+    public void AnadirColeccionable(int cantidad)
     {
         datosJugador.monedas += cantidad;
         ActualizarTexto();
@@ -44,6 +51,11 @@ public class GameController : MonoBehaviour
     private void GuardarDatos()
     {
         string json = JsonUtility.ToJson(datosJugador, true);
+        string directorio = Path.GetDirectoryName(rutaArchivo);
+        if (!Directory.Exists(directorio))
+        {
+            Directory.CreateDirectory(directorio);
+        }
         File.WriteAllText(rutaArchivo, json);
     }
 
@@ -64,5 +76,14 @@ public class GameController : MonoBehaviour
     private void ActualizarTexto()
     {
         pointsText.text = $"{datosJugador.monedas}";
+    }
+
+    private IEnumerator GenerarColeccionable()
+    { 
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(1f, 1f));
+            Instantiate(firePrefab, new Vector3(9.3f, Random.Range(-3.5f, 0.25f), 0f), Quaternion.identity);
+        }
     }
 }
