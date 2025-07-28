@@ -306,7 +306,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2548926114970096526, guid: 9a01ca53d861b6349aec1924525b588e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397ff1c5f4f28304a8dbd931260d058b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 4.45
+  scrollSpeed: 3
   backgrounds:
   - {fileID: 1568686741}
   - {fileID: 100265187}
@@ -786,7 +786,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2548926114970096526, guid: 9a01ca53d861b6349aec1924525b588e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -963,6 +963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsText: {fileID: 301482020}
+  firePrefab: {fileID: 325075323818531714, guid: 02c2565d3bf71174dab1ce1f01667001, type: 3}
 --- !u!4 &578119256
 Transform:
   m_ObjectHideFlags: 0
@@ -1279,7 +1280,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2548926114970096526, guid: 9a01ca53d861b6349aec1924525b588e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
