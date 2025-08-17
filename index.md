@@ -4,28 +4,27 @@ layout: default
 nav_order: 1
 ---
 
-<!-- Menú de iconos fijo (atajos a secciones) -->
+<!-- Quickbar mínima: Home + GitHub -->
 <nav class="quickbar" aria-label="Accesos rápidos">
   <a href="#gdd" title="Inicio"><i class="ri-home-5-line"></i></a>
-  <a href="#concepto" title="Concepto"><i class="ri-fire-fill"></i></a>
-  <a href="#gameplay" title="Gameplay"><i class="ri-gamepad-line"></i></a>
-  <a href="#economia" title="Economía"><i class="ri-coins-line"></i></a>
   <a href="https://github.com/mj-developers/idle" target="_blank" rel="noopener" title="Repositorio">
     <i class="ri-github-fill"></i>
   </a>
 </nav>
 
-<!-- HERO -->
+<!-- HERO mejorado (imagen grande con marco/efecto + texto) -->
 <section class="hero">
-  <div class="hero__content">
-    <img class="hero__logo" src="{{ '/assets/images/logo.png' | relative_url }}" alt="Logo Idle Runner" onerror="this.style.display='none'">
-    <h1>Idle Runner</h1>
-    <p class="hero__tagline">Idle + acción mínima + plataformeo táctico. Oscuro y melancólico.</p>
-    <div class="hero__ctas">
-      <a class="btn btn--primary" href="https://github.com/mj-developers/idle" target="_blank" rel="noopener">
-        <i class="ri-github-fill"></i> Repositorio
-      </a>
-      <a class="btn" href="#gdd"><i class="ri-file-text-line"></i> Leer GDD</a>
+  <div class="hero__inner">
+    <figure class="hero__art">
+      <!-- usa logo.svg; si no existe, intenta logo.png -->
+      <img src="{{ '/assets/images/logo.svg' | relative_url }}"
+           onerror="this.onerror=null;this.src='{{ '/assets/images/logo.png' | relative_url }}';"
+           alt="Idle Runner" class="hero__img">
+      <span class="hero__glow"></span>
+    </figure>
+    <div class="hero__text">
+      <h1 class="hero__title">Idle Runner</h1>
+      <p class="hero__tagline">Idle + acción mínima + plataformeo táctico. Oscuro y melancólico.</p>
     </div>
   </div>
 </section>
