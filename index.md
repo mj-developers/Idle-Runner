@@ -12,22 +12,17 @@ nav_order: 1
   </a>
 </nav>
 
-<!-- HERO mejorado -->
+<!-- HERO: solo logo centrado con máscara circular y borde -->
 <section class="hero">
-  <div class="hero__inner">
-    <figure class="hero__art">
+  <div class="hero__inner hero__inner--center">
+    <figure class="hero__art hero__art--clean">
       <img
         src="{{ '/assets/images/logo.png' | relative_url }}"
         alt="Idle Runner"
         class="hero__img hero__img--circle"
       >
-      <span class="hero__ring"></span>
       <span class="hero__glow"></span>
     </figure>
-    <div class="hero__text">
-      <h1 class="hero__title">Idle Runner</h1>
-      <p class="hero__tagline">Idle + acción mínima + plataformeo táctico. Oscuro y melancólico.</p>
-    </div>
   </div>
 </section>
 

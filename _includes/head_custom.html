@@ -2,27 +2,17 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // ====== Nombres visibles ======
-  const SITE_NAME = 'Idle Runner — GDD';
-  const PAGE_NAME = 'Idle Runner — One Page GDD';
+  // ======= Textos visibles =======
+  const SITE_TITLE_TEXT = 'Idle Runner — One Page GDD'; // lateral arriba
 
   // 1) Cambiar el título grande de la sidebar
   const siteTitle = document.querySelector('.site-title');
-  if (siteTitle) siteTitle.textContent = SITE_NAME;
+  if (siteTitle) siteTitle.textContent = SITE_TITLE_TEXT;
 
-  // 2) Título centrado en la barra superior del contenido
-  const pageHeader = document.querySelector('.main .page-header');
-  if (pageHeader && !document.querySelector('.top-center-title')) {
-    const el = document.createElement('div');
-    el.className = 'top-center-title';
-    el.textContent = PAGE_NAME;
-    pageHeader.appendChild(el);
-  }
-
-  // 3) Construir el índice de secciones (h2) en la navegación izquierda
-  const navList = document.querySelector('.navigation .navigation-list');
+  // 2) Construir el índice de secciones (H2) en la navegación izquierda
+  const navList = document.querySelector('.side-bar .navigation .navigation-list');
   if (navList) {
-    navList.innerHTML = ''; // vaciar enlaces por defecto
+    navList.innerHTML = ''; // vaciar lo que ponga el tema
     const sections = Array.from(document.querySelectorAll('h2[id]'));
     sections.forEach(sec => {
       const li = document.createElement('li');
@@ -36,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4) Botón para plegar/desplegar la barra lateral (sidebar)
+  // 3) Botón para plegar/desplegar la barra lateral
   if (!document.querySelector('.sidebar-toggle')) {
     const btn = document.createElement('button');
     btn.className = 'sidebar-toggle';
@@ -48,5 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.toggle('sidebar-collapsed');
     });
   }
+
+  // 4) Asegurar que no aparece título centrado extra en la cabecera
+  const topCenter = document.querySelector('.top-center-title');
+  if (topCenter) topCenter.remove();
 });
 </script>
