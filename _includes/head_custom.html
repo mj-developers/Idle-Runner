@@ -1,1 +1,52 @@
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ====== Nombres visibles ======
+  const SITE_NAME = 'Idle Runner — GDD';
+  const PAGE_NAME = 'Idle Runner — One Page GDD';
+
+  // 1) Cambiar el título grande de la sidebar
+  const siteTitle = document.querySelector('.site-title');
+  if (siteTitle) siteTitle.textContent = SITE_NAME;
+
+  // 2) Título centrado en la barra superior del contenido
+  const pageHeader = document.querySelector('.main .page-header');
+  if (pageHeader && !document.querySelector('.top-center-title')) {
+    const el = document.createElement('div');
+    el.className = 'top-center-title';
+    el.textContent = PAGE_NAME;
+    pageHeader.appendChild(el);
+  }
+
+  // 3) Construir el índice de secciones (h2) en la navegación izquierda
+  const navList = document.querySelector('.navigation .navigation-list');
+  if (navList) {
+    navList.innerHTML = ''; // vaciar enlaces por defecto
+    const sections = Array.from(document.querySelectorAll('h2[id]'));
+    sections.forEach(sec => {
+      const li = document.createElement('li');
+      li.className = 'navigation-list-item';
+      const a = document.createElement('a');
+      a.className = 'navigation-list-link';
+      a.href = '#' + sec.id;
+      a.textContent = sec.textContent.replace(/^\s*[\W_]+/, '');
+      li.appendChild(a);
+      navList.appendChild(li);
+    });
+  }
+
+  // 4) Botón para plegar/desplegar la barra lateral (sidebar)
+  if (!document.querySelector('.sidebar-toggle')) {
+    const btn = document.createElement('button');
+    btn.className = 'sidebar-toggle';
+    btn.setAttribute('aria-label', 'Mostrar/ocultar índice');
+    btn.title = 'Mostrar/ocultar índice';
+    btn.innerHTML = '⟨⟩';
+    document.body.appendChild(btn);
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('sidebar-collapsed');
+    });
+  }
+});
+</script>
