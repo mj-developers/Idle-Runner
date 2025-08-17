@@ -1,0 +1,25 @@
+title: "Idle Runner — GDD"
+description: "Documento de diseño (one-page) para el juego idle runner."
+url: "https://mj-developers.github.io"
+baseurl: "/idle"              # ¡IMPORTANTE para repos de organización/proyecto!
+
+# Tema de documentación
+remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Opciones visuales
+search_enabled: false         # es one-page; si quieres buscador, pon true
+color_scheme: dark            # pega con tu mood “oscuro, melancólico”
+logo: /assets/images/logo.svg # opcional; elimina esta línea si no subes un logo
+
+# URLs limpias
+permalink: pretty
+
+# Metadatos
+aux_links:
+  "Repositorio en GitHub":
+    - "https://github.com/mj-developers/idle"
+footer_content: "© MJ Devs — Idle Runner"
