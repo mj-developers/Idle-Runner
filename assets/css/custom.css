@@ -8,7 +8,6 @@
    Fondo general / tipografía
    ========================= */
 :root{
-  /* por si el tema usa variables de ancho */
   --content-width: 1400px;
 }
 body{
@@ -33,7 +32,6 @@ a:hover{ color:#cfe2ff; text-decoration:none; }
   border-right: 1px solid rgba(255,255,255,0.06);
 }
 .main{ margin-left: 300px !important; }
-/* más ancho real del contenido */
 .main-content{
   max-width: 1400px !important;
   padding-right: 2rem;
@@ -46,7 +44,7 @@ a:hover{ color:#cfe2ff; text-decoration:none; }
   .main{ margin-left:260px !important; }
 }
 
-/* Cabecera superior del contenido más limpia */
+/* Cabecera superior del contenido */
 .page-header, .main-content .page-header{
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
@@ -114,7 +112,77 @@ h3{ font-weight:700; font-size:1.15rem; }
 }
 
 /* =========================
-   Componentes útiles (cards/botón/código)
+   HERO
+   ========================= */
+.hero{
+  position: relative;
+  margin: 0 0 2rem 0;
+  padding: 56px 28px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  background:
+    radial-gradient(900px 500px at 85% -10%, rgba(158,197,255,.08), transparent 60%),
+    radial-gradient(700px 400px at -10% 100%, rgba(120,140,255,.06), transparent 60%),
+    rgba(255,255,255,.02);
+}
+.hero__content{
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: left;
+}
+.hero__logo{
+  width: 72px; height: 72px; object-fit: contain;
+  opacity: .95; margin-bottom: .5rem;
+}
+.hero h1{
+  font-size: clamp(40px, 5.2vw, 60px);
+  margin-bottom: .4rem;
+}
+.hero__tagline{
+  font-size: clamp(16px, 2.2vw, 18px);
+  color: #cfd4ff;
+  margin: 0 0 1rem 0;
+}
+.hero__ctas .btn{ margin-right: .6rem; }
+.btn--primary{
+  background: linear-gradient(90deg, rgba(158,197,255,.22), rgba(158,197,255,.06));
+  border: 1px solid rgba(158,197,255,.28);
+}
+
+/* =========================
+   QUICKBAR (menú de iconos fijo)
+   ========================= */
+.quickbar{
+  position: fixed;
+  left: 12px;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 2000;
+}
+.quickbar a{
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.03);
+  color: #cfd2e6; text-decoration: none;
+  transition: transform .15s ease, background .15s ease, color .15s ease;
+}
+.quickbar a:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.08);
+  color: #fff;
+}
+.quickbar i{ font-size: 20px; }
+
+/* Ocultar quickbar en pantallas estrechas */
+@media (max-width: 1100px){
+  .quickbar{ display: none; }
+}
+
+/* =========================
+   Componentes útiles
    ========================= */
 .card{
   background: rgba(255,255,255,.03);
@@ -143,7 +211,5 @@ blockquote{
 /* =========================
    Footer / créditos (quitar)
    ========================= */
-/* footer general */
-.site-footer, .site-footer .text-small{ display:none !important; }
-/* footer que aparece dentro de la barra lateral (según versión del tema) */
-.side-bar .site-footer{ display:none !important; }
+.site-footer, .site-footer .text-small,
+.side-bar .site-footer { display: none !important; }

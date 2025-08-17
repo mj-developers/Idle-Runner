@@ -4,6 +4,34 @@ layout: default
 nav_order: 1
 ---
 
+<!-- Menú de iconos fijo (atajos a secciones) -->
+<nav class="quickbar" aria-label="Accesos rápidos">
+  <a href="#gdd" title="Inicio"><i class="ri-home-5-line"></i></a>
+  <a href="#concepto" title="Concepto"><i class="ri-fire-fill"></i></a>
+  <a href="#gameplay" title="Gameplay"><i class="ri-gamepad-line"></i></a>
+  <a href="#economia" title="Economía"><i class="ri-coins-line"></i></a>
+  <a href="https://github.com/mj-developers/idle" target="_blank" rel="noopener" title="Repositorio">
+    <i class="ri-github-fill"></i>
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__content">
+    <img class="hero__logo" src="{{ '/assets/images/logo.png' | relative_url }}" alt="Logo Idle Runner" onerror="this.style.display='none'">
+    <h1>Idle Runner</h1>
+    <p class="hero__tagline">Idle + acción mínima + plataformeo táctico. Oscuro y melancólico.</p>
+    <div class="hero__ctas">
+      <a class="btn btn--primary" href="https://github.com/mj-developers/idle" target="_blank" rel="noopener">
+        <i class="ri-github-fill"></i> Repositorio
+      </a>
+      <a class="btn" href="#gdd"><i class="ri-file-text-line"></i> Leer GDD</a>
+    </div>
+  </div>
+</section>
+
+<div id="gdd"></div>
+
 # Idle Runner — One-Page GDD
 
 **Género:** Idle + Acción mínima + Plataformeo táctico  
@@ -11,7 +39,7 @@ nav_order: 1
 
 ---
 
-## 🔥 Concepto del juego
+## 🔥 Concepto del juego {#concepto}
 Eres el portador de una **llama frágil y viva** en un mundo de sombras.  
 La llama es **poder, progreso y vínculo** con la luz: cuanto más fuerte la mantengas, más obtendrás… pero **requiere atención, decisiones y habilidad**.
 
@@ -39,7 +67,7 @@ La llama es **poder, progreso y vínculo** con la luz: cuanto más fuerte la man
 
 ---
 
-## 🎮 Gameplay (in-game)
+## 🎮 Gameplay (in-game) {#gameplay}
 - **Movimiento lateral automático**.
 - El jugador puede:
   - **Saltar** (con control de altura/tiempo).
@@ -75,7 +103,7 @@ La llama es **poder, progreso y vínculo** con la luz: cuanto más fuerte la man
 
 ---
 
-## 💰 Economía y recursos
+## 💰 Economía y recursos {#economia}
 - **🧿 Esquirlas**: caen de enemigos; mejoran **habilidades básicas**.
 - **🌬️ Eco de luz**: generado **pasivamente** según nivel de llama.
 - **🪞 Fragmentos de recuerdo**: raros; **historia**, **cosméticos**, **habilidades únicas**.
