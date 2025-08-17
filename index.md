@@ -4,23 +4,24 @@ layout: default
 nav_order: 1
 ---
 
-<!-- Quickbar mínima: Home + GitHub -->
+<!-- Quickbar mínima: Home + GitHub + Toggle -->
 <nav class="quickbar" aria-label="Accesos rápidos">
   <a href="#gdd" title="Inicio"><i class="ri-home-5-line"></i></a>
-  <a href="https://github.com/mj-developers/idle" target="_blank" rel="noopener" title="Repositorio">
+  <a href="https://github.com/mj-developers/Idle-Runner" target="_blank" rel="noopener" title="Repositorio">
     <i class="ri-github-fill"></i>
   </a>
+  <button class="sidebar-toggle" title="Mostrar/ocultar índice" aria-label="Mostrar/ocultar índice">
+    <i class="ri-layout-left-2-line"></i>
+  </button>
 </nav>
 
-<!-- HERO: solo logo centrado con máscara circular y borde -->
+<!-- HERO: solo logo centrado con máscara circular -->
 <section class="hero">
   <div class="hero__inner hero__inner--center">
     <figure class="hero__art hero__art--clean">
-      <img
-        src="{{ '/assets/images/logo.png' | relative_url }}"
-        alt="Idle Runner"
-        class="hero__img hero__img--circle"
-      >
+      <img src="{{ '/assets/images/logo.png' | relative_url }}"
+           alt="Idle Runner"
+           class="hero__img hero__img--circle">
       <span class="hero__glow"></span>
     </figure>
   </div>
