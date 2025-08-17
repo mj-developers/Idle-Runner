@@ -2,34 +2,28 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // ======= Textos visibles =======
-  const SITE_TITLE_TEXT  = 'Idle Runner — One Page GDD';   // título grande en la barra lateral
-  const PAGE_TITLE_CENTER = 'Idle Runner - One Page GDD';  // título centrado en la cabecera
-
-  // 1) Cambiar el título grande de la sidebar
+  // ====== Título del panel lateral ======
+  const SITE_TITLE_TEXT = 'Idle Runner — One Page GDD';
   const siteTitle = document.querySelector('.site-title');
   if (siteTitle) siteTitle.textContent = SITE_TITLE_TEXT;
 
-  // 2) Título centrado en la barra superior del contenido
-  const pageHeader = document.querySelector('.main .page-header');
-  if (pageHeader && !document.querySelector('.top-center-title')) {
-    const el = document.createElement('div');
-    el.className = 'top-center-title';
-    el.textContent = PAGE_TITLE_CENTER;
-    pageHeader.appendChild(el);
-  }
-
-  // 3) Construir el índice de secciones (H2) en la navegación izquierda
-  const navRoot =
+  // ====== Construir índice (H2) en la navegación izquierda ======
+  const navUL =
     document.querySelector('.side-bar .navigation .navigation-list') ||
     document.querySelector('.side-bar .navigation-list') ||
     document.querySelector('.side-bar nav ul');
 
-  if (navRoot) {
-    navRoot.innerHTML = ''; // limpiar lo que ponga el tema
-    const sections = Array.from(document.querySelectorAll('h2[id]'));
-    if (sections.length) {
-      sections.forEach(sec => {
+  if (navUL) {
+    navUL.innerHTML = '';
+    const h2s = Array.from(document.querySelectorAll('.main-content h2'));
+    if (h2s.length) {
+      h2s.forEach(sec => {
+        if (!sec.id) {
+          sec.id = sec.textContent.trim()
+                     .toLowerCase()
+                     .replace(/[^\w\s-]/g,'')
+                     .replace(/\s+/g,'-');
+        }
         const li = document.createElement('li');
         li.className = 'navigation-list-item';
         const a = document.createElement('a');
@@ -37,30 +31,20 @@ document.addEventListener('DOMContentLoaded', () => {
         a.href = '#' + sec.id;
         a.textContent = sec.textContent.replace(/^\s*[\W_]+/, '');
         li.appendChild(a);
-        navRoot.appendChild(li);
+        navUL.appendChild(li);
       });
     } else {
-      // Fallback: enlace al inicio del documento
       const li = document.createElement('li');
       li.className = 'navigation-list-item';
-      const a = document.createElement('a');
-      a.className = 'navigation-list-link';
-      a.href = '#gdd';
-      a.textContent = 'Contenido';
-      li.appendChild(a);
-      navRoot.appendChild(li);
+      li.innerHTML = '<a class="navigation-list-link" href="#gdd">Contenido</a>';
+      navUL.appendChild(li);
     }
   }
 
-  // 4) Botón para plegar/desplegar la barra lateral
-  if (!document.querySelector('.sidebar-toggle')) {
-    const btn = document.createElement('button');
-    btn.className = 'sidebar-toggle';
-    btn.setAttribute('aria-label', 'Mostrar/ocultar índice');
-    btn.title = 'Mostrar/ocultar índice';
-    btn.innerHTML = '⟨⟩';
-    document.body.appendChild(btn);
-    btn.addEventListener('click', () => {
+  // ====== Toggle de la sidebar (botón está dentro de la quickbar) ======
+  const toggleBtn = document.querySelector('.quickbar .sidebar-toggle');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('sidebar-collapsed');
     });
   }
