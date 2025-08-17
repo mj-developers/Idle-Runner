@@ -18,9 +18,8 @@ body{
 a{ color:#9ec5ff; }
 a:hover{ color:#cfe2ff; text-decoration:none; }
 
-/* ===== Ocupa todo el ancho (sin recortes raros) ===== */
-.page, .main, .main-content, .main-content-wrap,
-.container, .page-content {
+/* ===== Ocupa todo el ancho ===== */
+.page, .main, .main-content, .main-content-wrap, .container, .page-content {
   max-width: unset !important;
   width: 100% !important;
 }
@@ -36,7 +35,7 @@ a:hover{ color:#cfe2ff; text-decoration:none; }
   transition: margin-left .2s ease;
 }
 .main-content{
-  width: calc(100% - 4rem) !important;   /* respiración lateral */
+  width: calc(100% - 4rem) !important; /* respiración lateral */
   margin: 0 auto;
   padding-right: 2rem;
 }
@@ -66,7 +65,21 @@ body.sidebar-collapsed .main{ margin-left: 0 !important; width: 100vw !important
   color:#fff; border:1px solid rgba(158,197,255,.28);
 }
 
-/* ===== Títulos ===== */
+/* ===== Título centrado arriba ===== */
+.top-center-title{
+  position: absolute;
+  left: 50%; transform: translateX(-50%);
+  top: 8px;
+  font-family:"Poppins", Inter, system-ui, sans-serif;
+  font-weight:800;
+  letter-spacing:.4px;
+  font-size: clamp(16px, 1.7vw, 22px);
+  background: linear-gradient(90deg, #ffffff, #cfd8ff, #9ec5ff);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-transform: none;
+}
+
+/* ===== Títulos sección ===== */
 h1, h2, h3, h4{ letter-spacing:.2px; }
 h1{
   font-family:"Poppins", Inter, system-ui, sans-serif;
@@ -91,28 +104,22 @@ h2::after{
 }
 h3{ font-weight:700; font-size:1.15rem; }
 
-/* ===== HERO: solo logo centrado con máscara circular ===== */
+/* ===== HERO: solo logo circular, centrado, sin separador ===== */
 .hero{
   position: relative;
-  margin: 0 0 1.5rem 0;
-  padding: 24px 0 8px;
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  background: transparent; /* sin cuadro */
+  margin: 0 0 1rem 0;
+  padding: 24px 0 0; /* sin borde abajo */
+  border-bottom: none;
+  background: transparent;
 }
 .hero__inner{
   width: 100%;
   display: grid;
   place-items: center;
 }
-.hero__inner--center{ place-items: center; }
-.hero__art{
-  position: relative;
-  padding: 0;
-  background: transparent;        /* sin fondo */
-  box-shadow: none;
-}
+.hero__art{ position: relative; background: transparent; box-shadow: none; padding: 0; }
 .hero__img{
-  width: min(420px, 60vw);
+  width: min(360px, 50vw); /* un pelín más pequeño */
   display: block;
 }
 .hero__img--circle{
@@ -131,7 +138,7 @@ h3{ font-weight:700; font-size:1.15rem; }
   filter: blur(18px);
 }
 
-/* ===== Quickbar (Home + GitHub) con separador visible ===== */
+/* ===== Quickbar (Home + GitHub) con separador visible y sin invadir enlaces ===== */
 .quickbar{
   position: fixed;
   left: 12px; top: 120px;
@@ -148,11 +155,13 @@ h3{ font-weight:700; font-size:1.15rem; }
 .quickbar a:hover{ transform: translateY(-1px); background: rgba(255,255,255,.12); color:#fff; }
 .quickbar i{ font-size: 22px; }
 
-/* Separador vertical más visual */
+/* Separador vertical más visible y sin capturar clics */
 .quickbar::after{
-  content:""; position:absolute; left: 68px; top:-12px; bottom:-12px;
+  content:""; position:absolute; left: 84px; top:-12px; bottom:-12px;
   width:2px; border-radius:2px;
   background: linear-gradient(180deg, rgba(158,197,255,.0), rgba(158,197,255,.55), rgba(158,197,255,.0));
+  pointer-events: none;
+  z-index: 0;
 }
 @media (max-width: 1100px){ .quickbar{ display:none; } }
 
@@ -179,7 +188,15 @@ blockquote{
   padding:.75rem 1rem; border-radius:8px;
 }
 
-/* ===== Ocultar créditos del tema y aux links ===== */
+/* ===== Footer: un solo separador y texto a la derecha ===== */
+.site-footer{
+  border-top: 1px solid rgba(255,255,255,.18) !important;
+}
+.site-footer .text-small{
+  text-align: right !important;
+  float: none !important;
+}
+.main-content hr:last-of-type{ display:none; } /* quitar el separador justo antes del footer si lo hubiera */
+
+/* ===== Ocultar aux links del tema (si aparecieran) ===== */
 .aux-nav { display:none !important; }
-.site-footer, .site-footer .text-small,
-.side-bar .site-footer { display: none !important; }
