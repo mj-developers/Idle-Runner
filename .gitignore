@@ -98,3 +98,17 @@ InitTestScene*.unity*
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 ProjectSettings/ProjectSettings.asset
+
+# Unity
+unity/Library/
+unity/Temp/
+unity/Logs/
+unity/Obj/
+unity/UserSettings/
+unity/MemoryCaptures/
+unity/Builds/
+# IDEs
+.vs/
+*.user
+*.csproj
+*.sln
