@@ -1,11 +1,10 @@
-/* ===== Fuentes + Iconos ===== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@700;800&display=swap');
 @import url('https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css');
 
-/* ===== Base ===== */
 :root{
-  --sidebar-w: 300px;
+  --sidebar-w: 360px;      /* más ancho */
 }
+
 body{
   background:
     radial-gradient(1600px 1000px at 80% -10%, rgba(255,255,255,0.05), transparent 60%),
@@ -18,15 +17,17 @@ body{
 a{ color:#9ec5ff; }
 a:hover{ color:#cfe2ff; text-decoration:none; }
 
-/* ===== Ocupa todo el ancho ===== */
+/* ===== Layout: ocupa todo el ancho ===== */
 .page, .main, .main-content, .main-content-wrap, .container, .page-content {
   max-width: unset !important;
   width: 100% !important;
 }
+
+/* ===== Sidebar con separador propio y plegable ===== */
 .side-bar{
   width: var(--sidebar-w) !important;
   background: linear-gradient(180deg, rgba(25,26,34,.94), rgba(22,23,30,.94));
-  border-right: 1px solid rgba(255,255,255,0.10);
+  border-right: 2px solid rgba(158,197,255,.35);   /* separador visual */
   transition: transform .2s ease;
 }
 .main{
@@ -35,21 +36,21 @@ a:hover{ color:#cfe2ff; text-decoration:none; }
   transition: margin-left .2s ease;
 }
 .main-content{
-  width: calc(100% - 4rem) !important; /* respiración lateral */
+  width: calc(100% - 4rem) !important;
   margin: 0 auto;
   padding-right: 2rem;
 }
-.page-header, .main-content .page-header{ border-bottom:1px solid rgba(255,255,255,.06); }
 
-/* Colapsar sidebar con botón */
+/* Colapsar sidebar */
 body.sidebar-collapsed .side-bar{ transform: translateX(calc(-1 * var(--sidebar-w))); }
 body.sidebar-collapsed .main{ margin-left: 0 !important; width: 100vw !important; }
 
-/* ===== Sidebar: títulos/links ===== */
+/* ===== Navegación lateral ===== */
 .site-title{
   font-family:"Poppins", Inter, system-ui, sans-serif;
   font-weight:800; letter-spacing:.3px;
   font-size: 22px; line-height: 1.1;
+  margin-right: .5rem;
 }
 .navigation-list .navigation-list-link{
   padding:.55rem .8rem;
@@ -65,21 +66,7 @@ body.sidebar-collapsed .main{ margin-left: 0 !important; width: 100vw !important
   color:#fff; border:1px solid rgba(158,197,255,.28);
 }
 
-/* ===== Título centrado arriba ===== */
-.top-center-title{
-  position: absolute;
-  left: 50%; transform: translateX(-50%);
-  top: 8px;
-  font-family:"Poppins", Inter, system-ui, sans-serif;
-  font-weight:800;
-  letter-spacing:.4px;
-  font-size: clamp(16px, 1.7vw, 22px);
-  background: linear-gradient(90deg, #ffffff, #cfd8ff, #9ec5ff);
-  -webkit-background-clip:text; background-clip:text; color:transparent;
-  text-transform: none;
-}
-
-/* ===== Títulos sección ===== */
+/* ===== Títulos ===== */
 h1, h2, h3, h4{ letter-spacing:.2px; }
 h1{
   font-family:"Poppins", Inter, system-ui, sans-serif;
@@ -102,24 +89,18 @@ h2::after{
   border-radius:3px; opacity:.7;
   background: linear-gradient(90deg, #9ec5ff, transparent);
 }
-h3{ font-weight:700; font-size:1.15rem; }
 
-/* ===== HERO: solo logo circular, centrado, sin separador ===== */
+/* ===== HERO: logo circular centrado (un pelín más pequeño) ===== */
 .hero{
-  position: relative;
   margin: 0 0 1rem 0;
-  padding: 24px 0 0; /* sin borde abajo */
+  padding: 24px 0 0;
   border-bottom: none;
   background: transparent;
 }
-.hero__inner{
-  width: 100%;
-  display: grid;
-  place-items: center;
-}
+.hero__inner{ width: 100%; display: grid; place-items: center; }
 .hero__art{ position: relative; background: transparent; box-shadow: none; padding: 0; }
 .hero__img{
-  width: min(360px, 50vw); /* un pelín más pequeño */
+  width: min(320px, 45vw);
   display: block;
 }
 .hero__img--circle{
@@ -138,43 +119,26 @@ h3{ font-weight:700; font-size:1.15rem; }
   filter: blur(18px);
 }
 
-/* ===== Quickbar (Home + GitHub) con separador visible y sin invadir enlaces ===== */
+/* ===== Quickbar (Home + GitHub + Toggle) ===== */
 .quickbar{
   position: fixed;
   left: 12px; top: 120px;
   display: flex; flex-direction: column; gap: 12px;
   z-index: 2000;
 }
-.quickbar a{
-  width: 44px; height: 44px; display: grid; place-items: center;
+.quickbar a, .quickbar .sidebar-toggle{
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
   border-radius: 12px; border: 1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.06); color: #e5e8ff; text-decoration: none;
+  background: rgba(255,255,255,.06); color: #e5e8ff;
   backdrop-filter: blur(6px);
   transition: transform .15s ease, background .15s ease, color .15s ease;
+  cursor: pointer;
 }
-.quickbar a:hover{ transform: translateY(-1px); background: rgba(255,255,255,.12); color:#fff; }
+.quickbar a:hover, .quickbar .sidebar-toggle:hover{
+  transform: translateY(-1px); background: rgba(255,255,255,.12); color:#fff;
+}
 .quickbar i{ font-size: 22px; }
-
-/* Separador vertical más visible y sin capturar clics */
-.quickbar::after{
-  content:""; position:absolute; left: 84px; top:-12px; bottom:-12px;
-  width:2px; border-radius:2px;
-  background: linear-gradient(180deg, rgba(158,197,255,.0), rgba(158,197,255,.55), rgba(158,197,255,.0));
-  pointer-events: none;
-  z-index: 0;
-}
-@media (max-width: 1100px){ .quickbar{ display:none; } }
-
-/* ===== Botón para colapsar la sidebar ===== */
-.sidebar-toggle{
-  position: fixed; left: 14px; bottom: 16px;
-  z-index: 2100;
-  width: 44px; height: 44px; border-radius: 12px;
-  border: 1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.06); color:#fff; cursor:pointer;
-  backdrop-filter: blur(6px);
-}
-.sidebar-toggle:hover{ background: rgba(255,255,255,.12); }
 
 /* ===== Código / citas ===== */
 code{ background: rgba(0,0,0,.3); border:1px solid rgba(255,255,255,.08); }
@@ -188,15 +152,15 @@ blockquote{
   padding:.75rem 1rem; border-radius:8px;
 }
 
-/* ===== Footer: un solo separador y texto a la derecha ===== */
-.site-footer{
-  border-top: 1px solid rgba(255,255,255,.18) !important;
-}
-.site-footer .text-small{
-  text-align: right !important;
-  float: none !important;
-}
-.main-content hr:last-of-type{ display:none; } /* quitar el separador justo antes del footer si lo hubiera */
+/* ===== Footer: 1 separador y texto a la derecha ===== */
+.site-footer{ border-top: 1px solid rgba(255,255,255,.18) !important; }
+.site-footer .text-small{ text-align: right !important; float: none !important; }
 
-/* ===== Ocultar aux links del tema (si aparecieran) ===== */
+/* Quitar el footer de crédito del tema en la sidebar */
+.side-bar .site-footer{ display: none !important; }
+
+/* Evitar un hr justo antes del footer si existe */
+.main-content > hr:last-child{ display: none; }
+
+/* Quitar links auxiliares del tema si aparecieran */
 .aux-nav { display:none !important; }
