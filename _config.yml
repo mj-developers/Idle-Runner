@@ -19,7 +19,4 @@ color_scheme: dark            # pega con tu mood “oscuro, melancólico”
 permalink: pretty
 
 # Metadatos
-aux_links:
-  "Repositorio en GitHub":
-    - "https://github.com/mj-developers/idle"
 footer_content: "© MJ Devs — Idle Runner"
