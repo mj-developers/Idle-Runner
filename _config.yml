@@ -1,7 +1,7 @@
 title: "Idle Runner — GDD"
 description: "Documento de diseño (one-page) para el juego idle runner."
 url: "https://mj-developers.github.io"
-baseurl: "/idle"              # ¡IMPORTANTE para repos de organización/proyecto!
+baseurl: "/Idle-Runner"              # ¡IMPORTANTE para repos de organización/proyecto!
 
 # Tema de documentación
 remote_theme: just-the-docs/just-the-docs
