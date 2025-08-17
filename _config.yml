@@ -13,7 +13,7 @@ plugins:
 # Opciones visuales
 search_enabled: false         # es one-page; si quieres buscador, pon true
 color_scheme: dark            # pega con tu mood “oscuro, melancólico”
-logo: /assets/images/logo.svg # opcional; elimina esta línea si no subes un logo
+#logo: /assets/images/logo.svg # opcional; elimina esta línea si no subes un logo
 
 # URLs limpias
 permalink: pretty
