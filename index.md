@@ -18,7 +18,7 @@ nav_order: 1
 <!-- HERO -->
 <section class="hero">
   <div class="hero__content">
-    <img class="hero__logo" src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Logo Idle Runner" onerror="this.style.display='none'">
+    <img class="hero__logo" src="{{ '/assets/images/logo.png' | relative_url }}" alt="Logo Idle Runner" onerror="this.style.display='none'">
     <h1>Idle Runner</h1>
     <p class="hero__tagline">Idle + acción mínima + plataformeo táctico. Oscuro y melancólico.</p>
     <div class="hero__ctas">
