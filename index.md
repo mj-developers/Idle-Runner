@@ -12,14 +12,16 @@ nav_order: 1
   </a>
 </nav>
 
-<!-- HERO mejorado (imagen grande con marco/efecto + texto) -->
+<!-- HERO mejorado -->
 <section class="hero">
   <div class="hero__inner">
     <figure class="hero__art">
-      <!-- usa logo.svg; si no existe, intenta logo.png -->
-      <img src="{{ '/assets/images/logo.svg' | relative_url }}"
-           onerror="this.onerror=null;this.src='{{ '/assets/images/logo.png' | relative_url }}';"
-           alt="Idle Runner" class="hero__img">
+      <img
+        src="{{ '/assets/images/logo.png' | relative_url }}"
+        alt="Idle Runner"
+        class="hero__img hero__img--circle"
+      >
+      <span class="hero__ring"></span>
       <span class="hero__glow"></span>
     </figure>
     <div class="hero__text">
@@ -44,7 +46,7 @@ La llama es **poder, progreso y vínculo** con la luz: cuanto más fuerte la man
 
 ---
 
-## 🧩 Resumen general
+## 🧩 Resumen general {#resumen}
 - La llama representa la **economía principal** y el **estado del jugador**.
 - Mantenerla encendida potencia el rendimiento **dentro y fuera** del juego.
 - El plataformeo es **intencionado**: rutas fáciles/seguras vs. rutas difíciles/recompensadas.
@@ -52,7 +54,7 @@ La llama es **poder, progreso y vínculo** con la luz: cuanto más fuerte la man
 
 ---
 
-## 🕯️ Sistema de llama
+## 🕯️ Sistema de llama {#llama}
 **Niveles de intensidad:** apagada → débil → estable → ardiente.
 
 **A mayor intensidad:**
@@ -83,7 +85,7 @@ La llama es **poder, progreso y vínculo** con la luz: cuanto más fuerte la man
 
 ---
 
-## 💤 Idle (fuera del juego)
+## 💤 Idle (fuera del juego) {#idle}
 - La llama se mantiene según **última intensidad**.
 - **Pierde fuerza lentamente** si no entras.
 - A mayor intensidad:
@@ -93,7 +95,7 @@ La llama es **poder, progreso y vínculo** con la luz: cuanto más fuerte la man
 
 ---
 
-## 🚪 Portales (niveles especiales)
+## 🚪 Portales (niveles especiales) {#portales}
 - Aparecen durante la exploración o tras **tiempo en idle**.
 - Al entrar:
   - Nivel **diferente y más vertical**, enfocado al plataformeo.
@@ -111,7 +113,7 @@ La llama es **poder, progreso y vínculo** con la luz: cuanto más fuerte la man
 
 ---
 
-## 🛒 Monetización (opcional y no intrusiva)
+## 🛒 Monetización (opcional y no intrusiva) {#monetizacion}
 **Anuncios opcionales**
 - Restaurar la llama.
 - Multiplicar recompensas tras niveles.
@@ -124,7 +126,7 @@ La llama es **poder, progreso y vínculo** con la luz: cuanto más fuerte la man
 
 ---
 
-## ✅ Diferenciadores clave
+## ✅ Diferenciadores clave {#diferenciadores}
 - **Plataformeo táctico + idle** (no es puro clicker).
 - **Combate por contacto** gobernado por la **intensidad** (no botón).
 - **Llama** como elemento **visual, mecánico y narrativo** unificado.
@@ -133,7 +135,7 @@ La llama es **poder, progreso y vínculo** con la luz: cuanto más fuerte la man
 
 ---
 
-## 🔭 Próximos pasos (MVP)
+## 🔭 Próximos pasos (MVP) {#mvp}
 1. Prototipo de **salto** con control de altura.
 2. **Indicador de llama** (4 estados) con feedback visual/sonoro.
 3. Generación simple de **rutas** (segura vs. arriesgada).
