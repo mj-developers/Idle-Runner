@@ -4,6 +4,8 @@ layout: default
 nav_order: 1
 ---
 
+<link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+
 # Idle Runner — One-Page GDD
 
 **Género:** Idle + Acción mínima + Plataformeo táctico  
